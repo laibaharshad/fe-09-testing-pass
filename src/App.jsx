@@ -1,3 +1,4 @@
+import ChatMessage from "./components/ChatMessage";
 import ChatSkeleton from "./components/ChatSkeleton";
 import { useState } from "react";
 
@@ -236,7 +237,7 @@ function App() {
 
   return (
     <main>
-      <h1>FE-08 AI Chat</h1>
+      <h1>FE-09 AI Chat</h1>
 
       {messages.length === 0 ? (
         <section className="empty-state">
@@ -272,12 +273,7 @@ function App() {
       ) : (
         <section className="messages">
           {messages.map((message, index) => (
-            <div key={index}>
-              <strong>
-                {message.role === "user" ? "You" : "AI"}:
-              </strong>{" "}
-              {message.content}
-            </div>
+            <ChatMessage key={index} message={message} />
           ))}
         </section>
       )}
